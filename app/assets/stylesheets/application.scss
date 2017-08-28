@@ -16,3 +16,12 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.center-text {
+  text-align: center;
+}
+
+a:hover {
+  background-color: transparent;
+  text-decoration: none;
+}

@@ -3,7 +3,10 @@
 Still to do:
 
 * Learn to send an electronic letter for Devise:
-https://rubyonrailshelp.wordpress.com/2014/01/02/setting-up-mailer-using-devise-for-forgot-password/
+** https://launchschool.com/blog/handling-emails-in-rails
+** https://github.com/rails/rails/tree/master/actionmailer
+** http://api.rubyonrails.org/v5.1.3/classes/ActionMailer/Base.html
+** http://guides.rubyonrails.org/action_mailer_basics.html
 
 * scaffold links, bookmarks, link flags
 
