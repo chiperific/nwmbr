@@ -1,32 +1,29 @@
 # README
 
-===============================================================================
-DEVISE IS DEVIOUS
-Keep reading at config/initializers/devise.rb
+Still to do:
 
-Some setup you must do manually if you haven't yet:
+* Learn to send an electronic letter for Devise:
+https://rubyonrailshelp.wordpress.com/2014/01/02/setting-up-mailer-using-devise-for-forgot-password/
 
-  1. Ensure you have defined default url options in your environments files. Here
-     is an example of default_url_options appropriate for a development environment
-     in config/environments/development.rb:
+* scaffold links, bookmarks, link flags
 
-       config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+* Refresh my brain about capybara
 
-     In production, :host should be set to the actual host of your application.
+* Flesh out all basic actions from MVC
 
-  2. Ensure you have defined root_url to *something* in your config/routes.rb.
-     For example:
+* Use CanCan for action auth (change roles from strings to ??)
+* Build out the actions (public, contributor, moderator, admin)
 
-       root to: "home#index"
+* Write tests for various roles
 
-  3. Ensure you have flash messages in app/views/layouts/application.html.erb.
-     For example:
+* Refresh my brain about ajax and json calls
+** WTF is jbuilder and why does it scaffold views for me?
 
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+* Get my pure_ruby working in the Bible model/controller
+** Finish features for:
+*** searching text
+*** navigating to passages of various dimensions (single verse, multiple verses, single chapter, multiple chapters, whole book)
+*** switching versions on the fly
 
-  4. You can copy Devise views (for customization) to your app by running:
+* Polish the views
 
-       rails g devise:views
-
-===============================================================================
