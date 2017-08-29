@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  resources :user_tracks
-  get 'users/manage'
-
-  get 'users/flag'
 
   root to: 'bibles#home'
 
@@ -13,5 +9,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'sign_in', to: 'devise/sessions#new'
   end
+
+  resources :user_tracks
 
 end

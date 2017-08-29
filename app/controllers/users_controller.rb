@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  def manage
+  def flag
   end
 
-  def flag
+  def manage
   end
 end

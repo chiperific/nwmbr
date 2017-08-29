@@ -34,7 +34,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.timestamps null: false
 
       #Non-Devise stuff
-      t.string :role, default: "Sign-up", null: false
+      t.string :role, default: "Guest", null: false
       t.string :username, default: "New User", null: false
       t.datetime :approved_at
       t.integer :approved_by
@@ -43,7 +43,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
 
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
-    # add_index :users, :confirmation_token,   unique: true
-    # add_index :users, :unlock_token,         unique: true
+    add_index :users, :confirmation_token,   unique: true
+    add_index :users, :unlock_token,         unique: true
   end
 end

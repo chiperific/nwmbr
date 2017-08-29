@@ -2,12 +2,6 @@
 
 Still to do:
 
-* Learn to send an electronic letter for Devise:
-** https://launchschool.com/blog/handling-emails-in-rails
-** https://github.com/rails/rails/tree/master/actionmailer
-** http://api.rubyonrails.org/v5.1.3/classes/ActionMailer/Base.html
-** http://guides.rubyonrails.org/action_mailer_basics.html
-
 * scaffold links, bookmarks, link flags
 
 * Refresh my brain about capybara
@@ -15,7 +9,7 @@ Still to do:
 * Flesh out all basic actions from MVC
 
 * Use CanCan for action auth (change roles from strings to ??)
-* Build out the actions (public, contributor, moderator, admin)
+* Build out the actions (public, guest, contributor, moderator, admin)
 
 * Write tests for various roles
 
@@ -29,4 +23,11 @@ Still to do:
 *** switching versions on the fly
 
 * Polish the views
+** Handle the Devise error fields loosing their bootstraps
 
+* Go to production (sure, Heroku, why not?)
+* Learn to send an electronic letter for Devise:
+** https://launchschool.com/blog/handling-emails-in-rails
+** https://github.com/rails/rails/tree/master/actionmailer
+** http://api.rubyonrails.org/v5.1.3/classes/ActionMailer/Base.html
+** http://guides.rubyonrails.org/action_mailer_basics.html

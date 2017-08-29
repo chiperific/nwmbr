@@ -28,10 +28,15 @@ class UserTracksController < ApplicationController
 
     respond_to do |format|
       if @user_track.save
-        format.html { redirect_to @user_track, notice: 'User track was successfully created.' }
+        format.html { redirect_to @user_track, notice: 'User tracking record was successfully created.' }
         format.json { render :show, status: :created, location: @user_track }
+        @user = User.find(params[:user_id])
+        @user.role = params(:role)
+        @user.approved_at = Time.now
+        @user.approved_by = current_user.id
+        @user.save!
       else
-        format.html { render :new }
+        format.html { render :new,  alert: 'Unable to create the user tracking record'}
         format.json { render json: @user_track.errors, status: :unprocessable_entity }
       end
     end
@@ -42,10 +47,15 @@ class UserTracksController < ApplicationController
   def update
     respond_to do |format|
       if @user_track.update(user_track_params)
-        format.html { redirect_to @user_track, notice: 'User track was successfully updated.' }
+        format.html { redirect_to @user_track, notice: 'User tracking record was successfully updated.' }
         format.json { render :show, status: :ok, location: @user_track }
+        @user = User.find(params[:user_id])
+        @user.role = params(:role)
+        @user.approved_at = Time.now
+        @user.approved_by = current_user.id
+        @user.save!
       else
-        format.html { render :edit }
+        format.html { render :edit,  alert: 'Unable to update the user tracking record' }
         format.json { render json: @user_track.errors, status: :unprocessable_entity }
       end
     end
@@ -56,7 +66,7 @@ class UserTracksController < ApplicationController
   def destroy
     @user_track.destroy
     respond_to do |format|
-      format.html { redirect_to user_tracks_url, notice: 'User track was successfully destroyed.' }
+      format.html { redirect_to user_tracks_url, notice: 'User tracking record was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
