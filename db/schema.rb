@@ -10,14 +10,71 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170828023338) do
+ActiveRecord::Schema.define(version: 20170831042633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "bookmarks", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "location"
+    t.string "comment"
+    t.boolean "archived", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
+
+  create_table "link_flags", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "link_id"
+    t.string "comment", null: false
+    t.integer "flagged_by", null: false
+    t.datetime "flagged_at", null: false
+    t.integer "resolved_by"
+    t.datetime "resolved_at"
+    t.boolean "resolved_status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["link_id"], name: "index_link_flags_on_link_id"
+    t.index ["user_id"], name: "index_link_flags_on_user_id"
+  end
+
+  create_table "links", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "url", null: false
+    t.string "comment"
+    t.string "location", null: false
+    t.string "author_name", null: false
+    t.string "author_url"
+    t.boolean "approved"
+    t.datetime "approved_at"
+    t.integer "approved_by", null: false
+    t.boolean "archived", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_links_on_user_id"
+  end
+
+  create_table "user_flags", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "comment"
+    t.integer "flagged_by"
+    t.datetime "flagged_at"
+    t.integer "resolved_by"
+    t.datetime "resolved_at"
+    t.boolean "resolved_status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_flags_on_user_id"
+  end
+
   create_table "user_tracks", force: :cascade do |t|
     t.bigint "user_id"
-    t.string "role"
+    t.string "role_assigned"
+    t.string "role_requested", default: "Guest", null: false
+    t.integer "approved_by"
+    t.datetime "approved_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_user_tracks_on_user_id"
@@ -44,14 +101,23 @@ ActiveRecord::Schema.define(version: 20170828023338) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "role", default: "Guest", null: false
-    t.string "username", default: "New User", null: false
-    t.datetime "approved_at"
-    t.integer "approved_by"
+    t.string "username", null: false
+    t.boolean "archived", default: false, null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "bookmarks", "users"
+  add_foreign_key "link_flags", "links"
+  add_foreign_key "link_flags", "users"
+  add_foreign_key "link_flags", "users", column: "resolved_by"
+  add_foreign_key "links", "users"
+  add_foreign_key "links", "users", column: "approved_by"
+  add_foreign_key "user_flags", "users"
+  add_foreign_key "user_flags", "users", column: "flagged_by"
+  add_foreign_key "user_flags", "users", column: "resolved_by"
   add_foreign_key "user_tracks", "users"
+  add_foreign_key "user_tracks", "users", column: "approved_by"
 end

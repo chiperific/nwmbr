@@ -1,3 +1,12 @@
+class ResetIds < ActiveRecord::Migration[5.1]
+  def change
+    # Reset all the primary ID keys based upon seeded data.
+    ActiveRecord::Base.connection.tables.each do |t|
+      ActiveRecord::Base.connection.reset_pk_sequence!(t)
+    end
+  end
+end
+
 class DeviseCreateUsers < ActiveRecord::Migration[5.1]
   def change
     create_table :users do |t|
@@ -35,9 +44,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
 
       #Non-Devise stuff
       t.string :role, default: "Guest", null: false
-      t.string :username, default: "New User", null: false
-      t.datetime :approved_at
-      t.integer :approved_by
+      t.string :username, null: false
+      t.boolean :archived, null: false, default: false
 
     end
 

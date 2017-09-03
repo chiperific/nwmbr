@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  link: one
+  comment: MyString
+  resolved: false
+  resolved_by: 1
+  resolved_at: 2017-08-31 00:12:45
+  resolved_status: false
+
+two:
+  user: two
+  link: two
+  comment: MyString
+  resolved: false
+  resolved_by: 1
+  resolved_at: 2017-08-31 00:12:45
+  resolved_status: false

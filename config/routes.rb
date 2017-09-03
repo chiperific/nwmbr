@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :bookmarks
+  resources :links
   root to: 'bibles#home'
 
   get 'users/manage', to: 'users#manage', as: 'manage_users'

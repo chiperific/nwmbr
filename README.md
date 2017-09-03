@@ -1,12 +1,14 @@
 # README
 
 Still to do:
-
-* scaffold links, bookmarks, link flags
+* Create message model for handling user messages? E.g. - "The [Link] you flagged has been resolved."
+> Can do all using current_user.last_sign_in_at && [user_flags, link_flags, user_tracks
+>> Create current_user.messages def
 
 * Refresh my brain about capybara
 
 * Flesh out all basic actions from MVC
+** Users, Links, Bookmarks, UserTracks, LinkTracks need self.active defs
 
 * Use CanCan for action auth (change roles from strings to ??)
 * Build out the actions (public, guest, contributor, moderator, admin)
