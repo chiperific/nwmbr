@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20170831042633) do
   enable_extension "plpgsql"
 
   create_table "bookmarks", force: :cascade do |t|
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.string "location"
     t.string "comment"
     t.boolean "archived", default: false, null: false
@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 20170831042633) do
   end
 
   create_table "link_flags", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "link_id"
+    t.bigint "user_id", null: false
+    t.bigint "link_id", null: false
     t.string "comment", null: false
     t.integer "flagged_by", null: false
     t.datetime "flagged_at", null: false
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20170831042633) do
   end
 
   create_table "links", force: :cascade do |t|
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.string "url", null: false
     t.string "comment"
     t.string "location", null: false
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20170831042633) do
     t.string "author_url"
     t.boolean "approved"
     t.datetime "approved_at"
-    t.integer "approved_by", null: false
+    t.integer "approved_by"
     t.boolean "archived", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -57,10 +57,10 @@ ActiveRecord::Schema.define(version: 20170831042633) do
   end
 
   create_table "user_flags", force: :cascade do |t|
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.string "comment"
-    t.integer "flagged_by"
-    t.datetime "flagged_at"
+    t.integer "flagged_by", null: false
+    t.datetime "flagged_at", null: false
     t.integer "resolved_by"
     t.datetime "resolved_at"
     t.boolean "resolved_status"

@@ -14,7 +14,7 @@
  *= require_self
  *= require devise_bootstrap_views
  */
-@import "bootstrap-sprockets";
+// @import "bootstrap-sprockets";
 @import "bootstrap";
 
 .center-text {
@@ -24,4 +24,9 @@
 a:hover {
   background-color: transparent;
   text-decoration: none;
+}
+
+#flash {
+  position: fixed;
+  z-index: 5;
 }

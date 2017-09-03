@@ -1,0 +1,3 @@
+@result.to_json
+Should be .json.jbuilder
+https://github.com/rails/jbuilder

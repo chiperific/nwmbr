@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get 'users/manage', to: 'users#manage', as: 'manage_users'
 
+  get '/search', to: 'bibles#search', as: 'search_bible', constraints: lambda { |req| req.format == :json }
+
   devise_for :users
 
   devise_scope :user do
@@ -14,4 +16,5 @@ Rails.application.routes.draw do
 
   resources :user_tracks
 
+  get '*path', to: 'bibles#route_error'
 end

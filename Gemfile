@@ -29,7 +29,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'fuzzy_match'
-gem 'bootstrap-sass' #Bootstrap 3
+# gem 'bootstrap-sass' #Bootstrap 3
+gem 'bootstrap'
 gem 'jquery-rails'
 gem 'better_errors'
 gem 'cancancan'
@@ -37,6 +38,7 @@ gem 'cancancan'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'binding_of_caller'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'

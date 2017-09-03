@@ -5,7 +5,10 @@ Still to do:
 > Can do all using current_user.last_sign_in_at && [user_flags, link_flags, user_tracks
 >> Create current_user.messages def
 
-* Refresh my brain about capybara
+* Refresh my brain about capybara && RSpec
+
+* Learn about jbuilder
+https://github.com/rails/jbuilder
 
 * Flesh out all basic actions from MVC
 ** Users, Links, Bookmarks, UserTracks, LinkTracks need self.active defs

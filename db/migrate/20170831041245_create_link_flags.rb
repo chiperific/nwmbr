@@ -1,8 +1,8 @@
 class CreateLinkFlags < ActiveRecord::Migration[5.1]
   def change
     create_table :link_flags do |t|
-      t.references :user, foreign_key: true
-      t.references :link, foreign_key: true
+      t.references :user, foreign_key: true, null: false
+      t.references :link, foreign_key: true, null: false
       t.string :comment, null: false
       t.integer :flagged_by, null: false
       t.datetime :flagged_at, null: false
