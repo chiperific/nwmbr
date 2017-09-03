@@ -12,7 +12,14 @@
 //
 //= require rails-ujs
 //= require turbolinks
-//= require_tree .
 //= require jquery3
 //= require popper
-//= require bootstrap-sprockets
+//= require bootstrap
+////= require_tree .
+
+// Put a timer on the flash messages
+$(document).ready(function(){
+  setTimeout(function(){
+    $('#flash').remove();
+  }, 3000);
+})

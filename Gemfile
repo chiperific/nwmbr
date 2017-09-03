@@ -32,6 +32,9 @@ gem 'fuzzy_match'
 # gem 'bootstrap-sass' #Bootstrap 3
 gem 'bootstrap'
 gem 'jquery-rails'
+gem 'popper_js', '~> 1.12'
+gem 'rails-assets-tether', '>= 1.1.0'
+
 gem 'better_errors'
 gem 'cancancan'
 

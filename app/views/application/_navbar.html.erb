@@ -1,31 +1,30 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">NWMBR</a>
-    </div>
+<nav class="navbar navbar-toggleable navbar-light" style="background-color: #e3f2fd;"">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarMaster" aria-controls="navbarMaster" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  <a class="navbar-brand" href="/">NWMBR</a>
 
-    <div class="collapse navbar-collapse" id="#navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li>Links</li>
-        <li>Go</li>
-        <li>Here</li>
-      </ul>
-      <p class="navbar-text pull-right">
-        <% if user_signed_in? %>
-          Logged in as <strong><%= current_user.username %></strong>.
-          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-        <% else %>
-          <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-          <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-        <% end %>
-      </p>
-    </div>
+  <div class="collapse navbar-collapse" id="navbarMaster">
+    <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Links</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Go</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Here</a>
+      </li>
+    </ul>
+    <span class="navbar-text pull-right">
+      <% if user_signed_in? %>
+      <span class="small-text"><%= current_user.username %></span>
+        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link tiny-text' %> |
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link tiny-text'  %>
+      <% else %>
+        <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+        <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+      <% end %>
+    </span>
   </div>
 </nav>

@@ -1,14 +1,18 @@
 # README
 
 Still to do:
-* Create message model for handling user messages? E.g. - "The [Link] you flagged has been resolved."
-> Can do all using current_user.last_sign_in_at && [user_flags, link_flags, user_tracks
->> Create current_user.messages def
-
 * Refresh my brain about capybara && RSpec
+** Controller tests
+** View tests (w/ Capybara)
+** Helper tests
+
 
 * Learn about jbuilder
 https://github.com/rails/jbuilder
+
+* Create message model for handling user messages? E.g. - "The [Link] you flagged has been resolved."
+> Can do all using current_user.last_sign_in_at && [user_flags, link_flags, user_tracks
+>> Create current_user.messages def
 
 * Flesh out all basic actions from MVC
 ** Users, Links, Bookmarks, UserTracks, LinkTracks need self.active defs
@@ -29,6 +33,7 @@ https://github.com/rails/jbuilder
 
 * Polish the views
 ** Handle the Devise error fields loosing their bootstraps
+** Ditch the devise bootstrap gem in favor of edited views/devise/*all
 
 * Go to production (sure, Heroku, why not?)
 * Learn to send an electronic letter for Devise:

@@ -6,20 +6,15 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script type="text/javascript">
-    $(document).ready(function(){
-      setTimeout(function(){
-        $('#flash').remove();
-      }, 3000);
-     })
-    </script>
   </head>
 
   <body>
-    <%= render 'navbar' %>
+    <div class="container-fluid" id="header">
+      <%= render 'navbar' %>
+    </div>
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-xs-auto center-text" id="flash">
+      <div class="row justify-content-center" id="flash">
+        <div class="col-xs-auto center-text">
           <% if notice %>
             <p class="alert alert-success"><%= notice %></p>
           <% end %>
@@ -30,6 +25,8 @@
       </div>
       <%= yield %>
     </div>
-    <%= render 'footer' %>
+    <div class="container-fluid" id="footer">
+      <%= render 'footer' %>
+    </div>
   </body>
 </html>
